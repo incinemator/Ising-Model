@@ -33,3 +33,11 @@ double calculateEnergy()
     }
     return energy;
 }
+
+// This function flips a spin and calculates the change in energy
+double flipSpin(int i, int j) {
+    int oldSpin = lattice[i][j];
+    int newSpin = -oldSpin;
+    double deltaE = 2 * J * oldSpin * (lattice[(i + 1) % N][j] + lattice[i][(j + 1) % N]);
+    return deltaE;
+}
