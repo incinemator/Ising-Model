@@ -1,2 +1,2 @@
 # Ising-Model
-Solution of the Ising Model using the Metropolis Algorithm in C
+Implemention of the classic Ising Model using the Metropolis Algorithm in C.
