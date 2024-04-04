@@ -34,10 +34,22 @@ double calculateEnergy()
     return energy;
 }
 
-// This function flips a spin and calculates the change in energy
+// Flip a spin and calculate the change in energy
 double flipSpin(int i, int j) {
     int oldSpin = lattice[i][j];
     int newSpin = -oldSpin;
     double deltaE = 2 * J * oldSpin * (lattice[(i + 1) % N][j] + lattice[i][(j + 1) % N]);
     return deltaE;
+}
+
+// The Metropolis algorithm
+void metropolis() {
+    for (int k = 0; k < N * N; k++) {
+        int i = rand() % N;
+        int j = rand() % N;
+        double deltaE = flipSpin(i, j);
+        if (deltaE <= 0 || ((double)rand() / RAND_MAX) < exp(-deltaE / (kB * T))) {
+            lattice[i][j] *= -1; // Flip the spin
+        }
+    }
 }
