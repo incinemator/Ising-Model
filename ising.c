@@ -6,7 +6,7 @@
 // Constants
 #define N 20 // Lattice size
 #define J 1.0 // Coupling constant
-#define bK 1.0 // Boltzmann consant
+#define kB 1.0 // Boltzmann consant
 #define T 2.0 // Temperature
 
 int lattice[N][N];
@@ -58,7 +58,7 @@ int main() {
     initialize();
     printf("Initial energy: %f\n", calculateEnergy());
 
-    for (int steps = 0; steps < 1000; steps++) {
+    for (int steps = 0; steps < 100000; steps++) {
         metropolis();
     }
 
