@@ -53,3 +53,16 @@ void metropolis() {
         }
     }
 }
+
+int main() {
+    initialize();
+    printf("Initial energy: %f\n", calculateEnergy());
+
+    for (int steps = 0; steps < 1000; steps++) {
+        metropolis();
+    }
+
+    printf("Final energy: %f\n", calculateEnergy());
+
+    return 0;
+}
